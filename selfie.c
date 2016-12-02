@@ -7156,21 +7156,31 @@ int schedule(int* fromContext){
 	int nextContextID;
 	int* cContext;
 
+	int fromID;
+	int* toContext;
+
 	nextContext = getPrevContext(fromContext);
-	if((nextContext)!=(int*)0)
+	if((nextContext)!=(int*)0){
 			nextContextID=getID(nextContext);
-	else{
+			toContext = nextContext;
+	}else{
 		nextContext=fromContext;
 		while(nextContext!=(int*)0){
 			cContext=nextContext;
 			nextContext = getNextContext(nextContext);
 		}
-		nextContextID=getID(cContext);		
+		nextContextID=getID(cContext);
+		toContext = cContext;
 	}
 
+	fromID = getID(fromContext);
+	
 //	print((int*) "Current CONTEXT ");
 //	printInteger(nextContextID);
 //	println();
+	if(getParent(toContext) == fromID){
+		nextContextID = fromID;
+	}
 
 	return nextContextID;
 
