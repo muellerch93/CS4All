@@ -1224,8 +1224,8 @@ void setParent(int* context, int id)         { *(context + 9) = id; }
 
 // MORTIS THREADING LIST
 
-int* threadList = (int*) 0;
-int threadValue = 0;
+int* lockWaitingQueue = (int*) 0;
+int  lockBusyValue = 0;
 
 int* getNextThread(int* thread) 	{ return (int*) *thread; 		}
 int* getPrevThread(int* thread) 	{ return (int*) *(thread+1); }
@@ -1237,7 +1237,7 @@ void setThreadId	 (int* thread,	int id) 						{	*(thread+2)	=	id;										}
 
 
 // Implementation methods MORTIS
-void removeLastThreadFromQueue();
+void getNextLockHolder();
 int furtherElementsInThreadQueue();
 int removeThreadFromLockedList(int* delThread);
 int putThreadToSleep(int id);
@@ -5148,15 +5148,15 @@ void emitLock(){
   emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
 }
 
-// sets threadValue to 1 if lock is triggered
+// sets lockBusyValue to 1 if lock is triggered
 // put threads to sleep if current lock is in progress
 void implementLock(){
-	printd("Lock trigger try from: ",getID(currentContext));
-	if(threadValue == 1){
+	//printd("Lock trigger try from: ",getID(currentContext));
+	if(lockBusyValue == 1){
 		putThreadToSleep(getID(currentContext));
 	}else{
-		printd("Lock granted from: ",getID(currentContext));
-		threadValue = 1;
+		//printd("Lock granted from: ",getID(currentContext));
+		lockBusyValue = 1;
 	}
 }
 
@@ -5168,13 +5168,13 @@ int putThreadToSleep(int id){
 	setPrevThread(threadObject,(int*)0);
 	setThreadId(threadObject,getID(currentContext));
 
-	if(threadList != (int*)0){
-		setPrevThread(threadList,threadObject);
-		setNextThread(threadObject,threadList);	
+	if(lockWaitingQueue != (int*)0){
+		setPrevThread(lockWaitingQueue,threadObject);
+		setNextThread(threadObject,lockWaitingQueue);	
 	}
 
 	//new thread will be new head
-	threadList=threadObject;
+	lockWaitingQueue=threadObject;
 
 	return 0;
 }
@@ -5188,18 +5188,19 @@ void emitUnlock(){
 }
 
 // releases the resource
-// if still elements in there threadvalue stays 1
+// remove longest waiting thread from waiting list
+// if there are still threads waiting waiting for the lock the lockBusyValue stays 1 otherwise change the value to 0
 void implementUnlock(){
 	int elementsLeft;
 
 	printd("Unlock triggered from: ",getID(currentContext));
 
-	removeLastThreadFromQueue();
+	getNextLockHolder();
 
 	elementsLeft = furtherElementsInThreadQueue();
 
 	if(elementsLeft == 0){
-			threadValue = 0;
+			lockBusyValue = 0;
 			//print("Reset value to zero");
 	}else{
 			//print("Threads left in queue do nothing");
@@ -5208,11 +5209,11 @@ void implementUnlock(){
 
 }
 
-// delete last thread in queue
-void removeLastThreadFromQueue(){
+// delete last thread in queue (first in first out strategy; remove thread that has waited the longest)
+void getNextLockHolder(){
 	int *cThread;
 
-	cThread=threadList;
+	cThread=lockWaitingQueue;
 	
 	while(cThread!=(int*)0){
 		if(getNextThread(cThread)==(int*)0){
@@ -5229,7 +5230,7 @@ void removeLastThreadFromQueue(){
 // returns 1 if there are further elements in queue
 // returns 0 if there are no elements in queue
 int furtherElementsInThreadQueue(){
-	if(threadList == (int*)0){
+	if(lockWaitingQueue == (int*)0){
 		return 0;
 	}else{
 		return 1;
@@ -5249,7 +5250,7 @@ int removeThreadFromLockedList(int* delThread){
 			setPrevThread(nextThread,(int*)0);
 		}
 
-		threadList = nextThread;
+		lockWaitingQueue = nextThread;
 	}
 
 	if(nextThread!=(int*)0){ 
@@ -7388,7 +7389,7 @@ int schedule(int* fromContext){
 // check if thread is contained in thread queue
 int isThreadLocked(int id){
 	int *cThread;
-	cThread=threadList;
+	cThread=lockWaitingQueue;
 	
 	while(cThread!=(int*)0){
 		if(getThreadId(cThread) == id){
