@@ -838,6 +838,19 @@ void implementMalloc();
 void emitYield();
 void implementYield();
 
+
+// MORTIS SYSCALLS
+
+void emitGetPid();
+void implementGetPid();
+
+void emitLock();
+void implementLock();
+
+void emitUnlock();
+void implementUnlock();
+
+
 // ------------------------ GLOBAL CONSTANTS -----------------------
 
 int debug_read   = 0;
@@ -854,6 +867,9 @@ int SYSCALL_OPEN   = 4005;
 int SYSCALL_MALLOC = 4045;
 int SYSCALL_YIELD  = 4046;
 
+int SYSCALL_GETPID  = 4047;
+int SYSCALL_LOCK  	= 4048;
+int SYSCALL_UNLOCK  = 4049;
 // -----------------------------------------------------------------
 // ----------------------- HYPSTER SYSCALLS ------------------------
 // -----------------------------------------------------------------
@@ -1037,7 +1053,7 @@ int EXCEPTION_HEAPOVERFLOW       = 4;
 int EXCEPTION_EXIT               = 5;
 int EXCEPTION_TIMER              = 6;
 int EXCEPTION_PAGEFAULT          = 7;
-int EXCEPTION_YIELD          	 = 8;
+int EXCEPTION_YIELD          	   = 8;
 
 int* EXCEPTIONS; // strings representing exceptions
 
@@ -4045,7 +4061,12 @@ void selfie_compile() {
   emitWrite();
   emitOpen();
   emitMalloc();
+
+	// MORTIS EMITS
   emitYield();
+	emitGetPid();
+	emitLock();
+	emitUnlock();
 
   emitID();
   emitCreate();
@@ -5086,6 +5107,42 @@ void implementYield() {
 }
 
 
+void emitGetPid(){
+  createSymbolTableEntry(LIBRARY_TABLE, (int*) "getpid", 0, PROCEDURE, INT_T, 0, binaryLength);
+  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_GETPID);
+  emitRFormat(OP_SPECIAL, 0, 0, 0, FCT_SYSCALL);
+  emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
+}
+
+void implementGetPid(){
+	//printd("getPID: ",getID(currentContext));
+	*(registers+REG_V0)=getID(currentContext);
+}
+
+
+void emitUnlock(){
+  createSymbolTableEntry(LIBRARY_TABLE, (int*) "lock", 0, PROCEDURE, VOID_T, 0, binaryLength);
+  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_GETPID);
+  emitRFormat(OP_SPECIAL, 0, 0, 0, FCT_SYSCALL);
+  emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
+}
+
+void implementUnlock(){
+	printd("Unlock triggered from: ",getID(currentContext));
+}
+
+void emitLock(){
+  createSymbolTableEntry(LIBRARY_TABLE, (int*) "unlock", 0, PROCEDURE, VOID_T, 0, binaryLength);
+  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_GETPID);
+  emitRFormat(OP_SPECIAL, 0, 0, 0, FCT_SYSCALL);
+  emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
+}
+
+void implementLock(){
+	printd("Lock triggered from: ",getID(currentContext));
+}
+
+
 // -----------------------------------------------------------------
 // ----------------------- HYPSTER SYSCALLS ------------------------
 // -----------------------------------------------------------------
@@ -5640,6 +5697,12 @@ void fct_syscall() {
       implementMalloc();
     else if (*(registers+REG_V0) == SYSCALL_YIELD)
       implementYield();
+    else if (*(registers+REG_V0) == SYSCALL_GETPID)
+      implementGetPid();
+    else if (*(registers+REG_V0) == SYSCALL_LOCK)
+      implementLock();
+    else if (*(registers+REG_V0) == SYSCALL_UNLOCK)
+      implementUnlock();
     else if (*(registers+REG_V0) == SYSCALL_ID)
       implementID();
     else if (*(registers+REG_V0) == SYSCALL_CREATE)
