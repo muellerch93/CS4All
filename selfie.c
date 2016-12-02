@@ -1221,6 +1221,7 @@ void setST(int* context, int* pt)            { *(context + 7) = (int) pt; }
 void setBreak(int* context, int brk)         { *(context + 8) = brk; }
 void setParent(int* context, int id)         { *(context + 9) = id; }
 
+int* initSegTableForContext(int* context);
 
 // MORTIS THREADING LIST
 
@@ -6796,8 +6797,7 @@ void printSegmentTable(int* segmentTable){
 
 int* allocateContext(int ID, int parentID) {
   int* context;
-  int* segTable;
-  int pageCount;
+
 
   if (freeContexts == (int*) 0)
     context = malloc(4 * SIZEOFINTSTAR + 6 * SIZEOFINT);
@@ -6812,8 +6812,9 @@ int* allocateContext(int ID, int parentID) {
   setID(context, ID);
   setPC(context, 0);
 
-  segTable = malloc(SEGMENTCOUNT * SIZEOFINTSTAR + SEGMENTCOUNT * SIZEOFINT);
+ 
   
+	
   // allocate zeroed memory for general purpose registers
   // TODO: reuse memory
   setRegs(context, zalloc(NUMBEROFREGISTERS * WORDSIZE));
@@ -6822,23 +6823,6 @@ int* allocateContext(int ID, int parentID) {
   setRegLo(context, 0);
   
  
-  //*segTable=(int) zalloc((VIRTUALMEMORYSIZE * WORDSIZE) / (PAGESIZE * SEGMENTCOUNT));
-
-  pageCount=0;
-   //zalloc a page table for each segment in segment table
-  while(pageCount<SEGMENTCOUNT){
-    	*(segTable+pageCount) =(int) zalloc((VIRTUALMEMORYSIZE / PAGESIZE)*WORDSIZE);
-       printd("zalloc: ",(int*) *(segTable+pageCount));
-        printd("size: ",VIRTUALMEMORYSIZE / PAGESIZE);
-		// printd((int*)"HOW MUCH ALLOCATE ",(VIRTUALMEMORYSIZE / 4 / PAGESIZE * WORDSIZE));
-     pageCount=pageCount+1;
-  }
-    
-	
-	//printSegmentTable(segTable);
-
-
-  setST(context,segTable);
   
   // allocate zeroed memory for page table
   // TODO: save and reuse memory for page table
@@ -7468,6 +7452,7 @@ int boot(int argc, int* argv) {
   int exitCode;
 	int count;
 	int firstID;
+	int* cContext;
 	
 	count=0;
   print(selfieName);
@@ -7491,27 +7476,37 @@ int boot(int argc, int* argv) {
 		// create initial context on microkernel boot level
 	
 		initID = selfie_create();
-			
-		if(count==0)
+		cContext = findContext(initID, usedContexts);
+
+		if(count==0){
 			firstID=initID;
+			initSegTableForContext(cContext);
+		}
 		if (usedContexts == (int*) 0){
 		  // create duplicate of the initial context on our boot level
 		  usedContexts = createContext(initID, selfie_ID(), (int*) 0);
 		}
-
 		
-		up_loadBinary(getST(findContext(initID, usedContexts)));
-		print((int*)"binary loaded");			
-		println();
+		
+		//if there is a previous context; get its segmentable for new context 
+		if(count!=0){
+			setST(cContext,getST(findContext(firstID, usedContexts)));
+			print((int*) "ST set to previous");
+			printSegmentTable(getST(findContext(firstID, usedContexts)));
+			printSegmentTable(getST(cContext));
+		}else{
+			up_loadBinary(getST(cContext));
+			print((int*)"binary loaded");			
+			println();
 
-		printd("up_loadArguments with context ",initID);
-		up_loadArguments(getST(findContext(initID, usedContexts)), argc, argv);
-		print((int*)"arguments loaded");
-		println();
+			printd("up_loadArguments with context ",initID);
+			up_loadArguments(getST(cContext), argc, argv);
+			print((int*)"arguments loaded");
+			println();
 
-		// propagate page table of initial context to microkernel boot level
-		down_mapPageTable(findContext(initID, usedContexts));
-
+			// propagate page table of initial context to microkernel boot level
+			down_mapPageTable(findContext(initID, usedContexts));
+		}
 		print((int*)"map page table after");
 		println();
 		count = count + 1;
@@ -7540,6 +7535,24 @@ int boot(int argc, int* argv) {
   println();
 
   return exitCode;
+}
+int* initSegTableForContext(int* context){
+  int* segTable;
+  int pageCount;
+  //*segTable=(int) zalloc((VIRTUALMEMORYSIZE * WORDSIZE) / (PAGESIZE * SEGMENTCOUNT));
+	segTable = malloc(SEGMENTCOUNT * SIZEOFINTSTAR + SEGMENTCOUNT * SIZEOFINT);
+  pageCount=0;
+   //zalloc a page table for each segment in segment table
+  while(pageCount<SEGMENTCOUNT){
+    	*(segTable+pageCount) =(int) zalloc((VIRTUALMEMORYSIZE / PAGESIZE)*WORDSIZE);
+       printd("zalloc: ",(int*) *(segTable+pageCount));
+        printd("size: ",VIRTUALMEMORYSIZE / PAGESIZE);
+		// printd((int*)"HOW MUCH ALLOCATE ",(VIRTUALMEMORYSIZE / 4 / PAGESIZE * WORDSIZE));
+     pageCount=pageCount+1;
+  }
+    
+  setST(context,segTable);
+	return getST(context);
 }
 
 int selfie_run(int engine, int machine, int debugger) {

@@ -1,0 +1,52 @@
+This is the Morties Selfie!!
+./selfie: 131760 bytes with 31133 instructions and 7228 bytes of data loaded from sample.m
+Number of concurrent processes:2
+Timer interrupt frequency:1
+./selfie: this is selfie's mipster executing sample.m with 2MB of physical memory
+zalloc: :  1471128768
+size: :  16384
+zalloc: :  1471194312
+size: :  16384
+zalloc: :  1471259856
+size: :  16384
+virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped binary loaded
+up_loadArguments with context :  0
+Uploading arguments
+virtual mapped Before!
+After!
+arguments loaded
+map page table after
+ST set to previousSEG UNUSED:  1471128768
+SEG CODE:  1471194312
+SEG STACK:  1471259856
+SEG HEAP:  0
+SEG UNUSED:  1471128768
+SEG CODE:  1471194312
+SEG STACK:  1471259856
+SEG HEAP:  0
+binary loaded
+up_loadArguments with context :  1
+Uploading arguments
+Before!
+After!
+arguments loaded
+map page table after
+map segment table after
+
+
+
+
+00112233445566778899
+
+
+
+sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
+EXIT of: 0
+sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
+EXIT of: 1
+./selfie: this is selfie's mipster terminating sample.m with exit code 0 and 0.14MB of mapped memory
+./selfie: profile: total,max(ratio%)@addr,2max(ratio%)@addr,3max(ratio%)@addr
+./selfie: calls: 1082,364(33.67%)@0x26B0,220(20.36%)@0x2710,140(12.95%)@0x284C
+./selfie: loops: 138,60(43.47%)@0x2E8,20(14.49%)@0x200,18(13.05%)@0x35A4
+./selfie: loads: 8342,364(4.36%)@0x26C4,220(2.63%)@0x2724,140(1.67%)@0x2860
+./selfie: stores: 5030,364(7.24%)@0x26B4,220(4.37%)@0x2714,140(2.78%)@0x2850
