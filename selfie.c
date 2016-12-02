@@ -1206,8 +1206,7 @@ int* getRegs(int* context)        { return (int*) *(context + 4); }
 int  getRegHi(int* context)       { return        *(context + 5); }
 int  getRegLo(int* context)       { return        *(context + 6); }
 int* getST(int* context)          { return (int*) *(context+7); 	}
-int  getBreak(int* context)       { return        *(context + 8); }
-int  getParent(int* context)      { return        *(context + 9); }
+int  getParent(int* context)      { return        *(context + 8); }
 
 
 void setNextContext(int* context, int* next) { *context       = (int) next; }
@@ -1218,8 +1217,7 @@ void setRegs(int* context, int* regs)        { *(context + 4) = (int) regs; }
 void setRegHi(int* context, int reg_hi)      { *(context + 5) = reg_hi; }
 void setRegLo(int* context, int reg_lo)      { *(context + 6) = reg_lo; }
 void setST(int* context, int* pt)            { *(context + 7) = (int) pt; }
-void setBreak(int* context, int brk)         { *(context + 8) = brk; }
-void setParent(int* context, int id)         { *(context + 9) = id; }
+void setParent(int* context, int id)         { *(context + 8) = id; }
 
 int* initSegTableForContext(int* context);
 
@@ -6800,7 +6798,7 @@ int* allocateContext(int ID, int parentID) {
 
 
   if (freeContexts == (int*) 0)
-    context = malloc(4 * SIZEOFINTSTAR + 6 * SIZEOFINT);
+    context = malloc(4 * SIZEOFINTSTAR + 5 * SIZEOFINT);
   else {
     context = freeContexts;
     freeContexts = getNextContext(freeContexts);
@@ -6830,7 +6828,7 @@ int* allocateContext(int ID, int parentID) {
 
   //printInteger(getPT(context));
   // heap starts where it is safe to start
-  setBreak(context, maxBinaryLength);
+  //setBreak(context, maxBinaryLength);
 
   setParent(context, parentID);
 
@@ -6870,7 +6868,7 @@ void switchContext(int* from, int* to) {
   setPC(from, pc);
   setRegHi(from, reg_hi);
   setRegLo(from, reg_lo);
-  setBreak(from, brk);
+  
 
   // restore machine state
   pc        = getPC(to);
@@ -6878,7 +6876,6 @@ void switchContext(int* from, int* to) {
   reg_hi    = getRegHi(to);
   reg_lo    = getRegLo(to);
   st				= getST(to);
-  brk       = getBreak(to);
 }
 
 void freeContext(int* context) {
@@ -7504,8 +7501,8 @@ int boot(int argc, int* argv) {
 			print((int*)"arguments loaded");
 			println();
 
-			// propagate page table of initial context to microkernel boot level
-			down_mapPageTable(findContext(initID, usedContexts));
+		// propagate page table of initial context to microkernel boot level
+		down_mapPageTable(findContext(initID, usedContexts));
 		}
 		print((int*)"map page table after");
 		println();
