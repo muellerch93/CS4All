@@ -6,10 +6,20 @@ int main(int argc, int *argv){
   i=0;
 	println();
 	println();
-  while(i<5){
-    printInteger(getpid());  
-    i=i+1; 
-  }
+
+
+
+	printInteger(getpid());
+    
+	lock(); 
+	println();
+	printInteger(getpid());
+	printInteger(getpid());
+	printInteger(getpid());
+	println();
+	unlock();
+		 
+
 	println();
 	println();
 	return 0;

@@ -799,7 +799,7 @@ void selfie_load();
 
 // ------------------------ GLOBAL CONSTANTS -----------------------
 
-int maxBinaryLength = 131072; // 128KB
+int maxBinaryLength = 262144; // 128KB
 
 // ------------------------ GLOBAL VARIABLES -----------------------
 
@@ -1220,6 +1220,26 @@ void setST(int* context, int* pt)            { *(context + 7) = (int) pt; }
 void setBreak(int* context, int brk)         { *(context + 8) = brk; }
 void setParent(int* context, int id)         { *(context + 9) = id; }
 
+
+// MORTIS THREADING LIST
+
+int* threadList = (int*) 0;
+
+int* getNextThread(int* thread) 	{ return (int*) *thread; 		}
+int* getPrevThread(int* thread) 	{ return (int*) *(thread+1); }
+int  getThreadId(int* thread)			{ return  			*(thread+2); }
+
+void setNextThread(int* thread, int* nextThread)		{ *thread			=	(int)  nextThread; }
+void setPrevThread(int* thread, int* prevThread) 		{ *(thread+1)	=	(int)  prevThread; }
+void setThreadId	 (int* thread,	int id) 						{	*(thread+2)	=	id;										}
+
+
+// Implementation methods MORTIS
+int findOrAddThreadToLockedList(int id);
+int addThreadToLockedList(int id);
+
+int findAndRemoveThreadFromLockedList(int id);
+int removeThreadFromLockedList(int* thread);
 
 // -----------------------------------------------------------------
 // -------------------------- MICROKERNEL --------------------------
@@ -5120,27 +5140,127 @@ void implementGetPid(){
 }
 
 
-void emitUnlock(){
-  createSymbolTableEntry(LIBRARY_TABLE, (int*) "lock", 0, PROCEDURE, VOID_T, 0, binaryLength);
-  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_GETPID);
-  emitRFormat(OP_SPECIAL, 0, 0, 0, FCT_SYSCALL);
-  emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
-}
-
-void implementUnlock(){
-	printd("Unlock triggered from: ",getID(currentContext));
-}
-
 void emitLock(){
-  createSymbolTableEntry(LIBRARY_TABLE, (int*) "unlock", 0, PROCEDURE, VOID_T, 0, binaryLength);
-  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_GETPID);
+  createSymbolTableEntry(LIBRARY_TABLE, (int*) "lock", 0, PROCEDURE, VOID_T, 0, binaryLength);
+  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_LOCK);
   emitRFormat(OP_SPECIAL, 0, 0, 0, FCT_SYSCALL);
   emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
 }
 
 void implementLock(){
+	int resultCode;
 	printd("Lock triggered from: ",getID(currentContext));
+
+	// If resultcode contains 0 then the lock has been added
+	// If resultcoded is -1 then the lock is called inside 
+	// a critical section again, which shouldn't been handled as normal lock
+	resultCode = findOrAddThreadToLockedList(getID(currentContext));
+
+	printd("Result of Lock (0-good, -1 -bad) : ",resultCode);
 }
+
+int findOrAddThreadToLockedList(int id){
+	int *cThread;
+	cThread=threadList;
+	
+	while(cThread!=(int*)0){
+		if(getThreadId(cThread) == id){
+			// thread already in locked list
+			return -1;
+		}
+		cThread=getNextThread(cThread);
+	}
+
+	// thread has not been found on locked list so it 
+	// is added now
+	return addThreadToLockedList(id);
+}
+
+int addThreadToLockedList(int id){
+
+	int *threadObject;
+	threadObject=malloc(1*SIZEOFINT + 2*SIZEOFINTSTAR);
+	setNextThread(threadObject,(int*)0);
+	setPrevThread(threadObject,(int*)0);
+	setThreadId(threadObject,getID(currentContext));
+
+	if(threadList != (int*)0){
+		setPrevThread(threadList,threadObject);
+		setNextThread(threadObject,threadList);	
+	}
+
+	//new thread will be new head
+	threadList=threadObject;
+	
+	return 0;
+
+}
+
+
+void emitUnlock(){
+  createSymbolTableEntry(LIBRARY_TABLE, (int*) "unlock", 0, PROCEDURE, VOID_T, 0, binaryLength);
+  emitIFormat(OP_ADDIU, REG_ZR, REG_V0, SYSCALL_UNLOCK);
+  emitRFormat(OP_SPECIAL, 0, 0, 0, FCT_SYSCALL);
+  emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
+}
+
+void implementUnlock(){
+	int resultCode;
+	printd("Unlock triggered from: ",getID(currentContext));
+
+	// If resultcode contains 0 then the lock has been remove
+	// If resultcoded is -1 then the lock could not be found
+	resultCode = findAndRemoveThreadFromLockedList(getID(currentContext));
+
+	printd("Result of Unlock (0-good, -1 -bad) : ",resultCode);
+}
+
+int findAndRemoveThreadFromLockedList(int id){
+	int *cThread;
+	cThread=threadList;
+	
+	while(cThread!=(int*)0){
+		if(getThreadId(cThread) == id){
+			// thread found in locked list
+			return removeThreadFromLockedList(cThread);
+		}
+		cThread=getNextThread(cThread);
+	}
+
+	// thread has not been found on locked list so unlock won't process
+	return -1;
+}
+
+int removeThreadFromLockedList(int* delThread){
+	int* prevThread;
+	int* nextThread;
+	
+	prevThread=getPrevThread(delThread);
+	nextThread=getNextThread(delThread);
+
+	if(prevThread == (int*) 0){
+		//is head
+		if(nextThread!=(int*)0){
+			setPrevThread(nextThread,(int*)0);
+		}
+
+		threadList = nextThread;
+	}
+
+	if(nextThread!=(int*)0){ 
+		//not last node
+		setPrevThread(nextThread,prevThread);
+	}
+
+	if(prevThread!=(int*)0){
+		//not first node
+		setNextThread(prevThread,nextThread);
+	}
+
+	return 0;
+
+}
+
 
 
 // -----------------------------------------------------------------
