@@ -3,8 +3,9 @@
 int main(int argc, int *argv){
   initLibrary();
 
-    
-	lock(); 
+	if(getpid()!=2){
+		lock(); 
+	}
 
 	println();
 	println();
@@ -13,8 +14,9 @@ int main(int argc, int *argv){
 	printInteger(getpid());
 	println();
 	println();
-
-	unlock();
+	if(getpid()!=2){
+		unlock();
+	}
 
 	return 0;
 }

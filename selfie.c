@@ -1225,7 +1225,7 @@ void setParent(int* context, int id)         { *(context + 9) = id; }
 // MORTIS THREADING LIST
 
 int* threadList = (int*) 0;
-int lockedCount = 0;
+int threadValue = 0;
 
 int* getNextThread(int* thread) 	{ return (int*) *thread; 		}
 int* getPrevThread(int* thread) 	{ return (int*) *(thread+1); }
@@ -1237,11 +1237,10 @@ void setThreadId	 (int* thread,	int id) 						{	*(thread+2)	=	id;										}
 
 
 // Implementation methods MORTIS
-int findOrAddThreadToLockedList(int id);
-int addThreadToLockedList(int id);
-
-int findAndRemoveThreadFromLockedList(int id);
-int removeThreadFromLockedList(int* thread);
+int removeLastThreadFromQueue();
+int furtherElementsInThreadQueue();
+int removeThreadFromLockedList(int* delThread);
+int putThreadToSleep(int id);
 
 // -----------------------------------------------------------------
 // -------------------------- MICROKERNEL --------------------------
@@ -5150,36 +5149,16 @@ void emitLock(){
 }
 
 void implementLock(){
-	int resultCode;
-	printd("Lock triggered from: ",getID(currentContext));
-
-	// If resultcode contains 0 then the lock has been added
-	// If resultcoded is -1 then the lock is called inside 
-	// a critical section again, which shouldn't been handled as normal lock
-	resultCode = findOrAddThreadToLockedList(getID(currentContext));
-
-	printd("Result of Lock (0-good, -1 -bad) : ",resultCode);
-}
-
-int findOrAddThreadToLockedList(int id){
-	int *cThread;
-	cThread=threadList;
-	
-	while(cThread!=(int*)0){
-		if(getThreadId(cThread) == id){
-			// thread already in locked list
-			return -1;
-		}
-		cThread=getNextThread(cThread);
+	printd("Lock trigger try from: ",getID(currentContext));
+	if(threadValue == 1){
+		putThreadToSleep(getID(currentContext));
+	}else{
+		printd("Lock granted from: ",getID(currentContext));
+		threadValue = 1;
 	}
-
-	// thread has not been found on locked list so it 
-	// is added now
-	return addThreadToLockedList(id);
 }
 
-int addThreadToLockedList(int id){
-
+int putThreadToSleep(int id){
 	int *threadObject;
 	threadObject=malloc(1*SIZEOFINT + 2*SIZEOFINTSTAR);
 	setNextThread(threadObject,(int*)0);
@@ -5193,10 +5172,8 @@ int addThreadToLockedList(int id){
 
 	//new thread will be new head
 	threadList=threadObject;
-	lockedCount = lockedCount + 1;
 
 	return 0;
-
 }
 
 
@@ -5209,29 +5186,47 @@ void emitUnlock(){
 
 void implementUnlock(){
 	int resultCode;
+
 	printd("Unlock triggered from: ",getID(currentContext));
 
-	// If resultcode contains 0 then the lock has been remove
-	// If resultcoded is -1 then the lock could not be found
-	resultCode = findAndRemoveThreadFromLockedList(getID(currentContext));
+	resultCode = removeLastThreadFromQueue();
+	if(resultCode == 0){
+			threadValue = 0;
+			print("Reset value to zero");
+			println();
+	}else{
+			print("Threads left in queue");
+			println();
+	}
 
-	printd("Result of Unlock (0-good, -1 -bad) : ",resultCode);
+
 }
 
-int findAndRemoveThreadFromLockedList(int id){
+int removeLastThreadFromQueue(){
 	int *cThread;
+
 	cThread=threadList;
 	
 	while(cThread!=(int*)0){
-		if(getThreadId(cThread) == id){
-			// thread found in locked list
-			return removeThreadFromLockedList(cThread);
+		if(getNextThread(cThread)==(int*)0){
+			// remove last thread with no next element
+			removeThreadFromLockedList(cThread);
+			return furtherElementsInThreadQueue();
 		}
+
 		cThread=getNextThread(cThread);
 	}
 
-	// thread has not been found on locked list so unlock won't process
-	return -1;
+	return 0;
+}
+
+
+int furtherElementsInThreadQueue(){
+	if(threadList == (int*)0){
+		return 0;
+	}else{
+		return 1;
+	}
 }
 
 int removeThreadFromLockedList(int* delThread){
@@ -5260,7 +5255,6 @@ int removeThreadFromLockedList(int* delThread){
 		setNextThread(prevThread,nextThread);
 	}
 
-	lockedCount = lockedCount - 1;
 	return 0;
 
 }
@@ -7373,9 +7367,11 @@ int schedule(int* fromContext){
 
 	// MORTIS THREAD LOCK HANDLING
 	if(isThreadLocked(nextContextID) == 1){
-		return nextContextID;
+		//printd("THREAD LOCKED ",nextContextID);
+		return schedule(findContext(nextContextID,usedContexts));
 	}else{
-		return fromID;
+		//printd("THREAD NOT LOCKED ",nextContextID);
+		return nextContextID;
 	}
 }
 
@@ -7383,10 +7379,6 @@ int isThreadLocked(int id){
 	int *cThread;
 	cThread=threadList;
 	
-	if(lockedCount == 1){
-		return 0;
-	}
-
 	while(cThread!=(int*)0){
 		if(getThreadId(cThread) == id){
 			// thread found in locked list
@@ -7399,6 +7391,8 @@ int isThreadLocked(int id){
 	// thread has not been found on locked list so it's unlocked
 	return 0;
 }
+
+
 
 int bootminmob(int argc, int* argv, int machine) {
   // works only with mipsters

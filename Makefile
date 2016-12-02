@@ -33,8 +33,11 @@ assignment1:
 assignment2:
 	./selfie -c testfiles/yieldexample.c selfie.c -conc 3 -freq 1000000000 -m 1
 
-assignment4:
+assignment4thread:
 	./selfie -c testfiles/threadexample.c selfie.c -conc 3 -freq 1 -m 4 
+
+assignment4thread-notall:
+	./selfie -c testfiles/threadexample_notall.c selfie.c -conc 3 -freq 1 -m 4 
 
 
 # Clean up
