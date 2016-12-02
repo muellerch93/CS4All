@@ -911,6 +911,7 @@ void selfie_map(int ID, int page, int frame, int* segment);
 
 // new 
 int schedule(int* fromContext);
+int isThreadLocked(int id);
 void setConcurrentCount();
 void setInstructionTimer();
 void setHypsterID();
@@ -1224,6 +1225,7 @@ void setParent(int* context, int id)         { *(context + 9) = id; }
 // MORTIS THREADING LIST
 
 int* threadList = (int*) 0;
+int lockedCount = 0;
 
 int* getNextThread(int* thread) 	{ return (int*) *thread; 		}
 int* getPrevThread(int* thread) 	{ return (int*) *(thread+1); }
@@ -5191,7 +5193,8 @@ int addThreadToLockedList(int id){
 
 	//new thread will be new head
 	threadList=threadObject;
-	
+	lockedCount = lockedCount + 1;
+
 	return 0;
 
 }
@@ -5257,9 +5260,12 @@ int removeThreadFromLockedList(int* delThread){
 		setNextThread(prevThread,nextThread);
 	}
 
+	lockedCount = lockedCount - 1;
 	return 0;
 
 }
+
+
 
 
 
@@ -7365,8 +7371,33 @@ int schedule(int* fromContext){
 		nextContextID = fromID;
 	}
 
-	return nextContextID;
+	// MORTIS THREAD LOCK HANDLING
+	if(isThreadLocked(nextContextID) == 1){
+		return nextContextID;
+	}else{
+		return fromID;
+	}
+}
 
+int isThreadLocked(int id){
+	int *cThread;
+	cThread=threadList;
+	
+	if(lockedCount == 1){
+		return 0;
+	}
+
+	while(cThread!=(int*)0){
+		if(getThreadId(cThread) == id){
+			// thread found in locked list
+			// so it's locked
+			return 1;
+		}
+		cThread=getNextThread(cThread);
+	}
+
+	// thread has not been found on locked list so it's unlocked
+	return 0;
 }
 
 int bootminmob(int argc, int* argv, int machine) {
