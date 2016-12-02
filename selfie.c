@@ -1237,7 +1237,7 @@ void setThreadId	 (int* thread,	int id) 						{	*(thread+2)	=	id;										}
 
 
 // Implementation methods MORTIS
-int removeLastThreadFromQueue();
+void removeLastThreadFromQueue();
 int furtherElementsInThreadQueue();
 int removeThreadFromLockedList(int* delThread);
 int putThreadToSleep(int id);
@@ -5148,6 +5148,8 @@ void emitLock(){
   emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
 }
 
+// sets threadValue to 1 if lock is triggered
+// put threads to sleep if current lock is in progress
 void implementLock(){
 	printd("Lock trigger try from: ",getID(currentContext));
 	if(threadValue == 1){
@@ -5158,6 +5160,7 @@ void implementLock(){
 	}
 }
 
+// allocates a new thread in wait queue
 int putThreadToSleep(int id){
 	int *threadObject;
 	threadObject=malloc(1*SIZEOFINT + 2*SIZEOFINTSTAR);
@@ -5184,25 +5187,29 @@ void emitUnlock(){
   emitRFormat(OP_SPECIAL, REG_RA, 0, 0, FCT_JR);
 }
 
+// releases the resource
+// if still elements in there threadvalue stays 1
 void implementUnlock(){
-	int resultCode;
+	int elementsLeft;
 
 	printd("Unlock triggered from: ",getID(currentContext));
 
-	resultCode = removeLastThreadFromQueue();
-	if(resultCode == 0){
+	removeLastThreadFromQueue();
+
+	elementsLeft = furtherElementsInThreadQueue();
+
+	if(elementsLeft == 0){
 			threadValue = 0;
-			print("Reset value to zero");
-			println();
+			//print("Reset value to zero");
 	}else{
-			print("Threads left in queue");
-			println();
+			//print("Threads left in queue do nothing");
 	}
 
 
 }
 
-int removeLastThreadFromQueue(){
+// delete last thread in queue
+void removeLastThreadFromQueue(){
 	int *cThread;
 
 	cThread=threadList;
@@ -5211,16 +5218,16 @@ int removeLastThreadFromQueue(){
 		if(getNextThread(cThread)==(int*)0){
 			// remove last thread with no next element
 			removeThreadFromLockedList(cThread);
-			return furtherElementsInThreadQueue();
+			return;
 		}
 
 		cThread=getNextThread(cThread);
 	}
 
-	return 0;
 }
 
-
+// returns 1 if there are further elements in queue
+// returns 0 if there are no elements in queue
 int furtherElementsInThreadQueue(){
 	if(threadList == (int*)0){
 		return 0;
@@ -7366,6 +7373,8 @@ int schedule(int* fromContext){
 	}
 
 	// MORTIS THREAD LOCK HANDLING
+	// if thread is locked continue with scheduling
+	// otherwise use scheduled context
 	if(isThreadLocked(nextContextID) == 1){
 		//printd("THREAD LOCKED ",nextContextID);
 		return schedule(findContext(nextContextID,usedContexts));
@@ -7375,6 +7384,8 @@ int schedule(int* fromContext){
 	}
 }
 
+
+// check if thread is contained in thread queue
 int isThreadLocked(int id){
 	int *cThread;
 	cThread=threadList;
