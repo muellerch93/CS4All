@@ -1,17 +1,14 @@
 
-
+int b;
 int main(int argc, int *argv){
-  int i;
-  initLibrary();
-  i=0;
-	println();
-	println();
-  while(i<10){
-    printInteger(i);  
-    i=i+1; 
-  }
-	println();
-	println();
+	int i;
+
+	while(i<10){
+		b=b+1;
+		i=i+1;
+	}
+	
+
 	return 0;
 }
 

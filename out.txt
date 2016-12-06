@@ -1,52 +1,172 @@
 This is the Morties Selfie!!
-./selfie: 131760 bytes with 31133 instructions and 7228 bytes of data loaded from sample.m
-Number of concurrent processes:2
-Timer interrupt frequency:1
-./selfie: this is selfie's mipster executing sample.m with 2MB of physical memory
-zalloc: :  1471128768
+./selfie: 580 bytes with 143 instructions and 8 bytes of data loaded from sample.m
+Number of concurrent processes:3
+Timer interrupt frequency:10000000
+./selfie: this is selfie's mipster executing sample.m with 3MB of physical memory
+zalloc: :  1482134720
 size: :  16384
-zalloc: :  1471194312
+zalloc: :  1482200264
 size: :  16384
-zalloc: :  1471259856
+zalloc: :  1482265808
 size: :  16384
-virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped binary loaded
+virtual mapped binary loaded
 up_loadArguments with context :  0
+SP start:67108860
 Uploading arguments
 virtual mapped Before!
 After!
 arguments loaded
 map page table after
-ST set to previousSEG UNUSED:  1471128768
-SEG CODE:  1471194312
-SEG STACK:  1471259856
-SEG HEAP:  0
-SEG UNUSED:  1471128768
-SEG CODE:  1471194312
-SEG STACK:  1471259856
-SEG HEAP:  0
-binary loaded
-up_loadArguments with context :  1
+ST set to previousSEG CODE:  1482134720
+SEG HEAP:  1482200264
+SEG STACK:  1482265808
+
+SP start:59652320
 Uploading arguments
-Before!
+virtual mapped Before!
+After!
+arguments loaded
+map page table after
+ST set to previousSEG CODE:  1482134720
+SEG HEAP:  1482200264
+SEG STACK:  1482265808
+
+SP start:52195780
+Uploading arguments
+virtual mapped Before!
 After!
 arguments loaded
 map page table after
 map segment table after
-
-
-
-
-00112233445566778899
-
-
-
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
+op_lw from context :  0
+vaddr :  572
+op_sw from context :  0
+vaddr :  572
 sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
 EXIT of: 0
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
+op_lw from context :  1
+vaddr :  572
+op_sw from context :  1
+vaddr :  572
 sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
 EXIT of: 1
-./selfie: this is selfie's mipster terminating sample.m with exit code 0 and 0.14MB of mapped memory
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+op_lw from context :  2
+vaddr :  572
+op_sw from context :  2
+vaddr :  572
+sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
+EXIT of: 2
+./selfie: this is selfie's mipster terminating sample.m with exit code 0 and 0.02MB of mapped memory
 ./selfie: profile: total,max(ratio%)@addr,2max(ratio%)@addr,3max(ratio%)@addr
-./selfie: calls: 1082,364(33.67%)@0x26B0,220(20.36%)@0x2710,140(12.95%)@0x284C
-./selfie: loops: 138,60(43.47%)@0x2E8,20(14.49%)@0x200,18(13.05%)@0x35A4
-./selfie: loads: 8342,364(4.36%)@0x26C4,220(2.63%)@0x2724,140(1.67%)@0x2860
-./selfie: stores: 5030,364(7.24%)@0x26B4,220(4.37%)@0x2714,140(2.78%)@0x2850
+./selfie: calls: 3,3(100.00%)@0x1BC,0(0.00%),0(0.00%)
+./selfie: loops: 30,30(100.00%)@0x1D4,0(0.00%),0(0.00%)
+./selfie: loads: 105,33(31.44%)@0x1D4,30(28.57%)@0x1E8,3(2.85%)@0x24
+./selfie: stores: 69,30(43.47%)@0x1F4,3(4.34%)@0x4C,0(0.00%)

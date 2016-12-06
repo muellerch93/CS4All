@@ -1077,6 +1077,8 @@ int reg_lo = 0; // lo register for multiplication/division
 
 int* st = (int*) 0; // segment table
 
+int stackPartitionSize;
+
 int brk = 0; // break between code, data, and heap
 
 int trap = 0; // flag for creating a trap
@@ -1286,7 +1288,7 @@ void pfree(int* frame);
 void up_loadBinary(int* table);
 
 int  up_loadString(int* table, int* s, int SP);
-void up_loadArguments(int* table, int argc, int* argv);
+void up_loadArguments(int* table, int argc, int* argv,int start);
 
 void mapUnmappedPages(int* table);
 
@@ -5727,7 +5729,6 @@ int* tlb(int* segmentTable, int vaddr) {
   // assert: isVirtualAddressMapped(table, vaddr) == 1
   page = getPageOfVirtualAddress(vaddr);
 
-	//printd((int*)"segment",loadSegmentFromVirtual(segmentTable,vaddr));
   frame = getFrameForPage(loadSegmentFromVirtual(segmentTable,vaddr), page);
 	//printd((int*)"frame",frame);
 	//printd((int*)"page",page);
@@ -5735,10 +5736,10 @@ int* tlb(int* segmentTable, int vaddr) {
 	// MORTIS
 	//shift vaddr so segment number is away 24 bit remaining
 	//printd((int*)"vaddr before shift in tlb",vaddr);
+
 	
-	//printd((int*)"vaddr after shift in tlb",vaddr);
   paddr = (vaddr - page * PAGESIZE) + frame;
-	//printd((int*)"paddr in tlb",paddr);
+
   if (debug_tlb) {
     print(binaryName);
     print((int*) ": tlb access:");
@@ -6338,14 +6339,20 @@ void op_lw() {
 
   if (interpret) {
     vaddr = *(registers+rs) + signExtend(immediate);
-
+		
+		if(vaddr<maxBinaryLength){
+			printd("op_lw from context ",getID(currentContext));
+			printd("vaddr ",vaddr);
+		}	
 		//add segment id to vaddr, heap or stack
-	
+		if(vaddr > brk){
+			vaddr = vaddr - (stackPartitionSize*getID(currentContext));
+		}
     if (isValidVirtualAddress(vaddr)) {
 	
 			
       if (isVirtualAddressMapped(st, vaddr)) {
-
+				
         *(registers+rt) = loadVirtualMemory(st, vaddr);
 
         // keep track of number of loads
@@ -6455,7 +6462,13 @@ void op_sw() {
 		//print("Page: ");
 		//printInteger(getPageOfVirtualAddress(vaddr));
 		//println();
-		
+		if(vaddr > brk){
+			vaddr=vaddr - (stackPartitionSize*getID(currentContext));
+		}
+		if(vaddr<maxBinaryLength){
+			printd("op_sw from context ",getID(currentContext));
+			printd("vaddr ",vaddr);
+		}
     if (isValidVirtualAddress(vaddr)) {
       if (isVirtualAddressMapped(st, vaddr)) {
 				//print("is mapped ");
@@ -6787,10 +6800,11 @@ int createID(int seed) {
 }
 
 void printSegmentTable(int* segmentTable){
-	printd((int*)"SEG UNUSED",*(segmentTable));
-	printd((int*)"SEG CODE",*(segmentTable + 1));
-	printd((int*)"SEG STACK",*(segmentTable + 2 ));
-	printd((int*)"SEG HEAP",*(segmentTable + 3));
+
+	printd((int*)"SEG CODE",*(segmentTable));
+	
+	printd((int*)"SEG HEAP",*(segmentTable + 1));
+	printd((int*)"SEG STACK",*(segmentTable +2 ));
 }
 
 int* allocateContext(int ID, int parentID) {
@@ -6798,7 +6812,7 @@ int* allocateContext(int ID, int parentID) {
 
 
   if (freeContexts == (int*) 0)
-    context = malloc(4 * SIZEOFINTSTAR + 5 * SIZEOFINT);
+    context = malloc(4 * SIZEOFINTSTAR + 6 * SIZEOFINT);
   else {
     context = freeContexts;
     freeContexts = getNextContext(freeContexts);
@@ -6811,8 +6825,6 @@ int* allocateContext(int ID, int parentID) {
   setPC(context, 0);
 
  
-  
-	
   // allocate zeroed memory for general purpose registers
   // TODO: reuse memory
   setRegs(context, zalloc(NUMBEROFREGISTERS * WORDSIZE));
@@ -6869,13 +6881,15 @@ void switchContext(int* from, int* to) {
   setRegHi(from, reg_hi);
   setRegLo(from, reg_lo);
   
-
+	
   // restore machine state
   pc        = getPC(to);
   registers = getRegs(to);
   reg_hi    = getRegHi(to);
   reg_lo    = getRegLo(to);
   st				= getST(to);
+
+
 }
 
 void freeContext(int* context) {
@@ -7017,15 +7031,14 @@ int up_loadString(int* table, int* s, int SP) {
   return SP;
 }
 
-void up_loadArguments(int* table, int argc, int* argv) {
+void up_loadArguments(int* table, int argc, int* argv,int start) {
   int SP;
   int vargv;
   int i_argc;
   int i_vargv;
   print("Uploading arguments\n");
-  // arguments are pushed onto stack which starts at highest virtual address
-  SP = VIRTUALMEMORYSIZE - WORDSIZE;
-
+	SP = start;
+ 
   // allocate memory for storing stack pointer later
   SP = SP - WORDSIZE;
 
@@ -7070,7 +7083,8 @@ void up_loadArguments(int* table, int argc, int* argv) {
 
 
   // store stack pointer at highest virtual address for binary to retrieve
-  mapAndStoreVirtualMemory(table, VIRTUALMEMORYSIZE - WORDSIZE, SP);
+  mapAndStoreVirtualMemory(table, start, SP);
+	
  print("After!\n");
 }
 
@@ -7413,7 +7427,7 @@ int bootminmob(int argc, int* argv, int machine) {
 
   up_loadBinary(getST(usedContexts));
 
-  up_loadArguments(getST(usedContexts), argc, argv);
+  up_loadArguments(getST(usedContexts), argc, argv,(VIRTUALMEMORYSIZE - WORDSIZE));
 
   if (machine == MINSTER){
     // virtual is like physical memory in initial context up to memory size
@@ -7451,6 +7465,7 @@ int boot(int argc, int* argv) {
 	int firstID;
 	int* cContext;
 	
+	int stackStartForThread;
 	count=0;
   print(selfieName);
   print((int*) ": this is selfie's ");
@@ -7468,7 +7483,9 @@ int boot(int argc, int* argv) {
   resetInterpreter();
 
   resetMicrokernel();
-		
+	//each thread gets a stackPartitionSize big portion of the stack
+	stackPartitionSize = (VIRTUALMEMORYSIZE/SEGMENTCOUNT)/processCallNumber;
+
 	while(count < processCallNumber){
 		// create initial context on microkernel boot level
 	
@@ -7489,20 +7506,35 @@ int boot(int argc, int* argv) {
 		if(count!=0){
 			setST(cContext,getST(findContext(firstID, usedContexts)));
 			print((int*) "ST set to previous");
-			printSegmentTable(getST(findContext(firstID, usedContexts)));
 			printSegmentTable(getST(cContext));
+			println();
+			stackStartForThread = (VIRTUALMEMORYSIZE - WORDSIZE)- stackPartitionSize * count;
+			print("SP start:");
+			printInteger(stackStartForThread);
+			println();
+			up_loadArguments(getST(cContext), argc, argv,stackStartForThread);
+			
+			print((int*)"arguments loaded");
+			println();
+			
 		}else{
 			up_loadBinary(getST(cContext));
 			print((int*)"binary loaded");			
 			println();
-
+			
 			printd("up_loadArguments with context ",initID);
-			up_loadArguments(getST(cContext), argc, argv);
+			//SP of context was previously initialised in up_load Arguments; in the thread approach each thread gets its own patition of the stack
+			// arguments are pushed onto stack which starts at highest virtual address
+  		print("SP start:");
+			printInteger((VIRTUALMEMORYSIZE - WORDSIZE));
+			println();
+			up_loadArguments(getST(cContext), argc, argv,(VIRTUALMEMORYSIZE - WORDSIZE));
+		
 			print((int*)"arguments loaded");
 			println();
 
-		// propagate page table of initial context to microkernel boot level
-		down_mapPageTable(findContext(initID, usedContexts));
+			// propagate page table of initial context to microkernel boot level
+			down_mapPageTable(findContext(initID, usedContexts));
 		}
 		print((int*)"map page table after");
 		println();
