@@ -6340,10 +6340,10 @@ void op_lw() {
   if (interpret) {
     vaddr = *(registers+rs) + signExtend(immediate);
 		
-		if(vaddr<maxBinaryLength){
-			printd("op_lw from context ",getID(currentContext));
-			printd("vaddr ",vaddr);
-		}	
+		//if(vaddr<maxBinaryLength){
+		//	printd("op_lw from context ",getID(currentContext));
+		//	printd("vaddr ",vaddr);
+		//}	
 		//add segment id to vaddr, heap or stack
 		if(vaddr > brk){
 			vaddr = vaddr - (stackPartitionSize*getID(currentContext));
@@ -6465,10 +6465,10 @@ void op_sw() {
 		if(vaddr > brk){
 			vaddr=vaddr - (stackPartitionSize*getID(currentContext));
 		}
-		if(vaddr<maxBinaryLength){
-			printd("op_sw from context ",getID(currentContext));
-			printd("vaddr ",vaddr);
-		}
+		//if(vaddr<maxBinaryLength){
+		//	printd("op_sw from context ",getID(currentContext));
+		//	printd("vaddr ",vaddr);
+		//}
     if (isValidVirtualAddress(vaddr)) {
       if (isVirtualAddressMapped(st, vaddr)) {
 				//print("is mapped ");
@@ -7508,15 +7508,14 @@ int boot(int argc, int* argv) {
 			print((int*) "ST set to previous");
 			printSegmentTable(getST(cContext));
 			println();
-			stackStartForThread = (VIRTUALMEMORYSIZE - WORDSIZE)- stackPartitionSize * count;
+			stackStartForThread = (VIRTUALMEMORYSIZE - WORDSIZE) - stackPartitionSize * count;
 			print("SP start:");
 			printInteger(stackStartForThread);
 			println();
-			up_loadArguments(getST(cContext), argc, argv,stackStartForThread);
-			
+			up_loadArguments(getST(cContext), argc, argv,stackStartForThread);	
 			print((int*)"arguments loaded");
 			println();
-			
+			down_mapPageTable(findContext(initID, usedContexts));
 		}else{
 			up_loadBinary(getST(cContext));
 			print((int*)"binary loaded");			

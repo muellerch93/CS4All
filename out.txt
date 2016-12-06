@@ -1,15 +1,15 @@
 This is the Morties Selfie!!
-./selfie: 580 bytes with 143 instructions and 8 bytes of data loaded from sample.m
+./selfie: 132320 bytes with 31247 instructions and 7332 bytes of data loaded from sample.m
 Number of concurrent processes:3
-Timer interrupt frequency:10000000
+Timer interrupt frequency:1
 ./selfie: this is selfie's mipster executing sample.m with 3MB of physical memory
-zalloc: :  1482134720
+zalloc: :  1463502016
 size: :  16384
-zalloc: :  1482200264
+zalloc: :  1463567560
 size: :  16384
-zalloc: :  1482265808
+zalloc: :  1463633104
 size: :  16384
-virtual mapped binary loaded
+virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped virtual mapped binary loaded
 up_loadArguments with context :  0
 SP start:67108860
 Uploading arguments
@@ -17,9 +17,9 @@ virtual mapped Before!
 After!
 arguments loaded
 map page table after
-ST set to previousSEG CODE:  1482134720
-SEG HEAP:  1482200264
-SEG STACK:  1482265808
+ST set to previousSEG CODE:  1463502016
+SEG HEAP:  1463567560
+SEG STACK:  1463633104
 
 SP start:59652320
 Uploading arguments
@@ -27,9 +27,9 @@ virtual mapped Before!
 After!
 arguments loaded
 map page table after
-ST set to previousSEG CODE:  1482134720
-SEG HEAP:  1482200264
-SEG STACK:  1482265808
+ST set to previousSEG CODE:  1463502016
+SEG HEAP:  1463567560
+SEG STACK:  1463633104
 
 SP start:52195780
 Uploading arguments
@@ -39,134 +39,1973 @@ arguments loaded
 map page table after
 map segment table after
 op_lw from context :  0
-vaddr :  572
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
 op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_sw from context :  1
+vaddr :  132200
+op_sw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
-op_sw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_lw from context :  0
-vaddr :  572
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
 op_sw from context :  0
-vaddr :  572
+vaddr :  132196
+op_sw from context :  1
+vaddr :  132196
+op_sw from context :  2
+vaddr :  132196
+op_lw from context :  0
+vaddr :  132196
+op_lw from context :  1
+vaddr :  132196
+op_lw from context :  2
+vaddr :  132196
+op_sw from context :  0
+vaddr :  132192
+op_sw from context :  1
+vaddr :  132192
+op_sw from context :  2
+vaddr :  132192
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_sw from context :  0
+vaddr :  132188
+op_sw from context :  1
+vaddr :  132188
+op_sw from context :  2
+vaddr :  132188
+op_lw from context :  0
+vaddr :  132188
+op_lw from context :  1
+vaddr :  132188
+op_lw from context :  2
+vaddr :  132188
+op_sw from context :  0
+vaddr :  132184
+op_sw from context :  1
+vaddr :  132184
+op_sw from context :  2
+vaddr :  132184
+op_sw from context :  0
+vaddr :  132176
+op_sw from context :  1
+vaddr :  132176
+op_sw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_sw from context :  0
+vaddr :  132172
+op_sw from context :  1
+vaddr :  132172
+op_sw from context :  2
+vaddr :  132172
+op_lw from context :  0
+vaddr :  132180
+op_lw from context :  1
+vaddr :  132180
+op_lw from context :  2
+vaddr :  132180
+op_sw from context :  0
+vaddr :  132168
+op_sw from context :  1
+vaddr :  132168
+op_sw from context :  2
+vaddr :  132168
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_sw from context :  0
+vaddr :  132164
+op_sw from context :  1
+vaddr :  132164
+op_sw from context :  2
+vaddr :  132164
+op_lw from context :  0
+vaddr :  132164
+op_lw from context :  1
+vaddr :  132164
+op_lw from context :  2
+vaddr :  132164
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_sw from context :  0
+vaddr :  132312
+op_sw from context :  1
+vaddr :  132312
+op_sw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+bbbop_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+iiiop_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+bbbop_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132304
+op_lw from context :  1
+vaddr :  132304
+op_lw from context :  2
+vaddr :  132304
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+iiiop_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132308
+op_lw from context :  1
+vaddr :  132308
+op_lw from context :  2
+vaddr :  132308
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132308
+op_lw from context :  1
+vaddr :  132308
+op_lw from context :  2
+vaddr :  132308
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+:::op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132308
+op_lw from context :  1
+vaddr :  132308
+op_lw from context :  2
+vaddr :  132308
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132312
+op_lw from context :  1
+vaddr :  132312
+op_lw from context :  2
+vaddr :  132312
+op_lw from context :  0
+vaddr :  132172
+op_lw from context :  1
+vaddr :  132172
+op_lw from context :  2
+vaddr :  132172
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+111op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+000op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132208
+op_lw from context :  1
+vaddr :  132208
+op_lw from context :  2
+vaddr :  132208
+op_lw from context :  0
+vaddr :  132200
+op_lw from context :  1
+vaddr :  132200
+op_lw from context :  2
+vaddr :  132200
+op_lw from context :  0
+vaddr :  132292
+op_lw from context :  1
+vaddr :  132292
+op_lw from context :  2
+vaddr :  132292
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
+op_lw from context :  0
+vaddr :  132176
+op_lw from context :  1
+vaddr :  132176
+op_lw from context :  2
+vaddr :  132176
+
+
+
+op_lw from context :  0
+vaddr :  132132
+op_lw from context :  1
+vaddr :  132132
+op_lw from context :  2
+vaddr :  132132
 sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
 EXIT of: 0
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
-op_lw from context :  1
-vaddr :  572
-op_sw from context :  1
-vaddr :  572
 sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
 EXIT of: 1
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
-op_lw from context :  2
-vaddr :  572
-op_sw from context :  2
-vaddr :  572
 sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
 EXIT of: 2
-./selfie: this is selfie's mipster terminating sample.m with exit code 0 and 0.02MB of mapped memory
+./selfie: this is selfie's mipster terminating sample.m with exit code 0 and 0.15MB of mapped memory
 ./selfie: profile: total,max(ratio%)@addr,2max(ratio%)@addr,3max(ratio%)@addr
-./selfie: calls: 3,3(100.00%)@0x1BC,0(0.00%),0(0.00%)
-./selfie: loops: 30,30(100.00%)@0x1D4,0(0.00%),0(0.00%)
-./selfie: loads: 105,33(31.44%)@0x1D4,30(28.57%)@0x1E8,3(2.85%)@0x24
-./selfie: stores: 69,30(43.47%)@0x1F4,3(4.34%)@0x4C,0(0.00%)
+./selfie: calls: 561,192(34.24%)@0x25F4,108(19.26%)@0x2654,78(13.90%)@0x2790
+./selfie: loops: 156,90(57.80%)@0x2E4,30(19.23%)@0x1E0,21(13.47%)@0x3F94
+./selfie: loads: 4704,192(4.08%)@0x2608,108(2.29%)@0x2668,93(1.97%)@0x2E4
+./selfie: stores: 2682,192(7.16%)@0x25F8,108(4.02%)@0x2658,90(3.35%)@0x358
