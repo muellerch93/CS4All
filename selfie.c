@@ -7306,10 +7306,9 @@ int runOrHostUntilExitWithPageFaultHandling(int toID) {
 				}
 				
 				toID = getID(fromContext);
-				//println();
-				//print((int*)"AFTER DELETE ID");
-				//printInteger(toID);
-				//println();
+				if(isThreadLocked(toID) == 1)			
+					toID=schedule(findContext(toID,usedContexts));
+				
 			}else if(exceptionNumber == EXCEPTION_YIELD){
 			  toID=schedule(fromContext);
         cycles=0;
