@@ -1091,7 +1091,7 @@ int timer = 0; // counter for timer interrupt
 
 int mipster = 0; // flag for forcing to use mipster rather than hypster
 
-int interpret = 0; // flag for executing or disassembling code
+int interpret = 1; // flag for executing or disassembling code
 
 int debug = 0; // flag for logging code execution
 
@@ -1288,7 +1288,7 @@ void pfree(int* frame);
 void up_loadBinary(int* table);
 
 int  up_loadString(int* table, int* s, int SP);
-void up_loadArguments(int* table, int argc, int* argv,int start);
+int up_loadArguments(int* table, int argc, int* argv,int start);
 
 void mapUnmappedPages(int* table);
 
@@ -4027,7 +4027,8 @@ void bootstrapCode() {
   load_integer(VIRTUALMEMORYSIZE - WORDSIZE);
 
   // load initial stack pointer into SP register
-  emitIFormat(OP_LW, currentTemporary(), REG_SP, 0);
+   // Morties: do not emit instruction for setting the stack pointer
+ //  emitIFormat(OP_LW, currentTemporary(), REG_SP, 0);
 
   tfree(1);
 
@@ -4186,7 +4187,6 @@ void selfie_compile() {
   codeLength = binaryLength;
 
   emitGlobalsStrings();
-
   bootstrapCode();
 
   print(selfieName);
@@ -5781,14 +5781,11 @@ void mapAndStoreVirtualMemory(int* segmentTable, int vaddr, int data) {
 	pageTable = loadSegmentFromVirtual(segmentTable, vaddr);
 
 	
-
-
-	
   if (isVirtualAddressMapped(segmentTable, vaddr) == 0){
 		//println();
 		//print("IS VIRTUAL ADDRESS MAPPED SUCCEED");
 		//println();
-			print("virtual mapped ");
+	
     mapPage(pageTable, getPageOfVirtualAddress(vaddr), (int) palloc());
 	}
 	
@@ -6345,12 +6342,10 @@ void op_lw() {
 		//	printd("vaddr ",vaddr);
 		//}	
 		//add segment id to vaddr, heap or stack
-		if(vaddr > brk){
-			vaddr = vaddr - (stackPartitionSize*getID(currentContext));
-		}
-    if (isValidVirtualAddress(vaddr)) {
-	
-			
+		//if(vaddr > brk){
+		//	vaddr = vaddr - (stackPartitionSize*getID(currentContext));
+		//}
+    if (isValidVirtualAddress(vaddr)) {	
       if (isVirtualAddressMapped(st, vaddr)) {
 				
         *(registers+rt) = loadVirtualMemory(st, vaddr);
@@ -6462,9 +6457,9 @@ void op_sw() {
 		//print("Page: ");
 		//printInteger(getPageOfVirtualAddress(vaddr));
 		//println();
-		if(vaddr > brk){
-			vaddr=vaddr - (stackPartitionSize*getID(currentContext));
-		}
+		//if(vaddr > brk){
+		//	vaddr=vaddr - (stackPartitionSize*getID(currentContext));
+		//}
 		//if(vaddr<maxBinaryLength){
 		//	printd("op_sw from context ",getID(currentContext));
 		//	printd("vaddr ",vaddr);
@@ -6915,9 +6910,9 @@ int* deleteContext(int* context, int* from) {
 
 void mapPage(int* table, int page, int frame) {
   // assert: 0 <= page < VIRTUALMEMORYSIZE / PAGESIZE
-	//print("Mapping page: ");
-	//printInteger( table + page);
-	//println();
+	print("Mapping page: ");
+	printInteger(page);
+	println();
   *(table + page) = frame;
 }
 
@@ -7031,7 +7026,7 @@ int up_loadString(int* table, int* s, int SP) {
   return SP;
 }
 
-void up_loadArguments(int* table, int argc, int* argv,int start) {
+int up_loadArguments(int* table, int argc, int* argv,int start) {
   int SP;
   int vargv;
   int i_argc;
@@ -7080,12 +7075,12 @@ void up_loadArguments(int* table, int argc, int* argv,int start) {
 
   // push virtual argv
   mapAndStoreVirtualMemory(table,  SP, vargv);
-
-
+  
+  printd("start",start);
+  printd("SP",SP);
   // store stack pointer at highest virtual address for binary to retrieve
   mapAndStoreVirtualMemory(table, start, SP);
-	
- print("After!\n");
+	return SP;
 }
 
 void mapUnmappedPages(int* segTable) {
@@ -7512,10 +7507,9 @@ int boot(int argc, int* argv) {
 			print("SP start:");
 			printInteger(stackStartForThread);
 			println();
-			up_loadArguments(getST(cContext), argc, argv,stackStartForThread);	
+			*(getRegs(cContext)+ REG_SP) = up_loadArguments(getST(cContext), argc, argv,stackStartForThread);	
 			print((int*)"arguments loaded");
 			println();
-			down_mapPageTable(findContext(initID, usedContexts));
 		}else{
 			up_loadBinary(getST(cContext));
 			print((int*)"binary loaded");			
@@ -7527,7 +7521,7 @@ int boot(int argc, int* argv) {
   		print("SP start:");
 			printInteger((VIRTUALMEMORYSIZE - WORDSIZE));
 			println();
-			up_loadArguments(getST(cContext), argc, argv,(VIRTUALMEMORYSIZE - WORDSIZE));
+			*(getRegs(cContext)+ REG_SP) = up_loadArguments(getST(cContext), argc, argv,(VIRTUALMEMORYSIZE - WORDSIZE));
 		
 			print((int*)"arguments loaded");
 			println();
