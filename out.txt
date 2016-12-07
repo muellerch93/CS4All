@@ -1,254 +1,69 @@
 This is the Morties Selfie!!
-./selfie: 620 bytes with 154 instructions and 4 bytes of data loaded from sample.m
+./selfie: this is selfie's starc compiling testfiles/threadexample.c
+./selfie: 362 characters read in 28 lines and 1 comments
+./selfie: with 290(80.64%) characters in 84 actual symbols
+./selfie: 1 global variables, 5 procedures, 2 string literals
+./selfie: 9 calls, 4 assignments, 0 while, 0 if, 1 return
+./selfie: this is selfie's starc compiling selfie.c
+./selfie: warning in selfie.c in line 95: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 116: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 117: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 122: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 212: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 1732: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 1744: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 1773: type mismatch, int expected but void found
+./selfie: warning in selfie.c in line 7743: redefinition of procedure main ignored
+./selfie: 194153 characters read in 7776 lines and 1158 comments
+./selfie: with 106565(54.94%) characters in 31225 actual symbols
+./selfie: 275 global variables, 315 procedures, 485 string literals
+./selfie: 2085 calls, 786 assignments, 64 while, 601 if, 261 return
+./selfie: 131464 bytes generated with 31079 instructions and 7148 bytes of data
+./selfie: 131464 bytes with 31079 instructions and 7148 bytes of data written into sample.m
+./selfie: 131464 bytes with 31079 instructions and 7148 bytes of data loaded from sample.m
 Number of concurrent processes:3
+Timer interrupt frequency:1000
 ./selfie: this is selfie's mipster executing sample.m with 4MB of physical memory
-zalloc: :  1469039808
+zalloc: :  1465349840
 size: :  16384
-zalloc: :  1469105352
+zalloc: :  1465415384
 size: :  16384
-zalloc: :  1469170896
+zalloc: :  1465480928
 size: :  16384
-Mapping page: 0
-binary loaded
-up_loadArguments with context :  0
-SP start:67108860
 Uploading arguments
-Mapping page: 16383
 Before!
 start:  67108860
 SP:  67108832
-After!
-arguments loaded
-Mapping page: 0
-Mapping page: 16383
 map page table after
-ST set to previousSEG CODE:  1469039808
-SEG HEAP:  1469105352
-SEG STACK:  1469170896
-
-SP start:59652320
 Uploading arguments
-Mapping page: 14563
 Before!
 start:  59652320
 SP:  59652292
-After!
-arguments loaded
 map page table after
-ST set to previousSEG CODE:  1469039808
-SEG HEAP:  1469105352
-SEG STACK:  1469170896
-
-SP start:52195780
 Uploading arguments
-Mapping page: 12743
 Before!
 start:  52195780
 SP:  52195752
-After!
-arguments loaded
 map page table after
 map segment table after
-sample.m: $pc=0x0: 0x24080268: addiu $t0,$zero,616: $t0=0,$zero=0 -> $t0=616
-sample.m: $pc=0x4: 0x251C0000: addiu $gp,$t0,0: $gp=0,$t0=616 -> $gp=616
-sample.m: $pc=0x8: 0x24080FFF: addiu $t0,$zero,4095: $t0=616,$zero=0 -> $t0=4095
-sample.m: $pc=0xC: 0x24094000: addiu $t1,$zero,16384: $t1=0,$zero=0 -> $t1=16384
-sample.m: $pc=0x10: 0x01090019: multu $t0,$t1: $t0=4095,$t1=16384,$lo=0 -> $lo=67092480
-sample.m: $pc=0x14: 0x00004012: mflo $t0: $t0=4095,$lo=67092480 -> $t0=67092480
-sample.m: $pc=0x18: 0x00000000: nop
-sample.m: $pc=0x1C: 0x00000000: nop
-sample.m: $pc=0x20: 0x25083FFC: addiu $t0,$t0,16380: $t0=67092480,$t0=67092480 -> $t0=67108860
-sample.m: $pc=0x24: 0x8D1D0000: lw $sp,0($t0): $sp=0,$t0=0x3FFFFFC -> $sp=67108832=memory[0x3FFFFFC]
-sample.m: $pc=0x28: 0x00000000: nop
-sample.m: $pc=0x2C: 0x00000000: nop
-sample.m: $pc=0x30: 0x00000000: nop
-sample.m: $pc=0x34: 0x00000000: nop
-sample.m: $pc=0x38: 0x00000000: nop
-sample.m: $pc=0x3C: 0x00000000: nop
-sample.m: $pc=0x40: 0x0C00006F: jal 0x6F[0x1BC]: $ra=0x0 -> $ra=0x48,$pc=0x1BC
-sample.m: $pc=0x1BC: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108832,$sp=67108832 -> $sp=67108828
-sample.m: $pc=0x1C0: 0xAFBF0000: sw $ra,0($sp): $ra=72,$sp=0x3FFFFDC -> memory[0x3FFFFDC]=72=$ra
-sample.m: $pc=0x1C4: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108828,$sp=67108828 -> $sp=67108824
-sample.m: $pc=0x1C8: 0xAFBE0000: sw $fp,0($sp): $fp=0,$sp=0x3FFFFD8 -> memory[0x3FFFFD8]=0=$fp
-sample.m: $pc=0x1CC: 0x27BE0000: addiu $fp,$sp,0: $fp=0,$sp=67108824 -> $fp=67108824
-sample.m: $pc=0x1D0: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108824,$sp=67108824 -> $sp=67108820
-sample.m: $pc=0x1D4: 0x24080000: addiu $t0,$zero,0: $t0=67108860,$zero=0 -> $t0=0
-sample.m: $pc=0x1D8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=0,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=0=$t0
-sample.m: $pc=0x1DC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=0,$fp=0x3FFFFD8 -> $t0=0=memory[0x3FFFFD4]
-sample.m: $pc=0x1E0: 0x24090001: addiu $t1,$zero,1: $t1=16384,$zero=0 -> $t1=1
-sample.m: $pc=0x1E4: 0x01094021: addu $t0,$t0,$t1: $t0=0,$t0=0,$t1=1 -> $t0=1
-sample.m: $pc=0x1E8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=1,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=1=$t0
-sample.m: $pc=0x1EC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=1,$fp=0x3FFFFD8 -> $t0=1=memory[0x3FFFFD4]
-sample.m: $pc=0x1F0: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x1F4: 0x01094021: addu $t0,$t0,$t1: $t0=1,$t0=1,$t1=1 -> $t0=2
-sample.m: $pc=0x1F8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=2,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=2=$t0
-sample.m: $pc=0x1FC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=2,$fp=0x3FFFFD8 -> $t0=2=memory[0x3FFFFD4]
-sample.m: $pc=0x200: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x204: 0x01094021: addu $t0,$t0,$t1: $t0=2,$t0=2,$t1=1 -> $t0=3
-sample.m: $pc=0x208: 0xAFC8FFFC: sw $t0,-4($fp): $t0=3,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=3=$t0
-sample.m: $pc=0x20C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=3,$fp=0x3FFFFD8 -> $t0=3=memory[0x3FFFFD4]
-sample.m: $pc=0x210: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x214: 0x01094021: addu $t0,$t0,$t1: $t0=3,$t0=3,$t1=1 -> $t0=4
-sample.m: $pc=0x218: 0xAFC8FFFC: sw $t0,-4($fp): $t0=4,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=4=$t0
-sample.m: $pc=0x21C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=4,$fp=0x3FFFFD8 -> $t0=4=memory[0x3FFFFD4]
-sample.m: $pc=0x220: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x224: 0x01094021: addu $t0,$t0,$t1: $t0=4,$t0=4,$t1=1 -> $t0=5
-sample.m: $pc=0x228: 0xAFC8FFFC: sw $t0,-4($fp): $t0=5,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=5=$t0
-sample.m: $pc=0x22C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=5,$fp=0x3FFFFD8 -> $t0=5=memory[0x3FFFFD4]
-sample.m: $pc=0x230: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x234: 0x01094021: addu $t0,$t0,$t1: $t0=5,$t0=5,$t1=1 -> $t0=6
-sample.m: $pc=0x238: 0xAFC8FFFC: sw $t0,-4($fp): $t0=6,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=6=$t0
-sample.m: $pc=0x23C: 0x24080000: addiu $t0,$zero,0: $t0=6,$zero=0 -> $t0=0
-sample.m: $pc=0x240: 0x00081021: addu $v0,$zero,$t0: $v0=0,$zero=0,$t0=0 -> $v0=0
-sample.m: $pc=0x244: 0x08000093: j 0x93[0x24C]: -> $pc=0x24C
-sample.m: $pc=0x24C: 0x27DD0000: addiu $sp,$fp,0: $sp=67108820,$fp=67108824 -> $sp=67108824
-sample.m: $pc=0x250: 0x8FBE0000: lw $fp,0($sp): $fp=67108824,$sp=0x3FFFFD8 -> $fp=0=memory[0x3FFFFD8]
-sample.m: $pc=0x254: 0x27BD0004: addiu $sp,$sp,4: $sp=67108824,$sp=67108824 -> $sp=67108828
-sample.m: $pc=0x258: 0x8FBF0000: lw $ra,0($sp): $ra=72,$sp=0x3FFFFDC -> $ra=72=memory[0x3FFFFDC]
-sample.m: $pc=0x25C: 0x27BD000C: addiu $sp,$sp,12: $sp=67108828,$sp=67108828 -> $sp=67108840
-sample.m: $pc=0x260: 0x03E00008: jr $ra: $ra=0x48 -> $pc=0x48
-sample.m: $pc=0x48: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108840,$sp=67108840 -> $sp=67108836
-sample.m: $pc=0x4C: 0xAFA20000: sw $v0,0($sp): $v0=0,$sp=0x3FFFFE4 -> memory[0x3FFFFE4]=0=$v0
-sample.m: $pc=0x50: 0x8FA40000: lw $a0,0($sp): $a0=0,$sp=0x3FFFFE4 -> $a0=0=memory[0x3FFFFE4]
-sample.m: $pc=0x54: 0x27BD0004: addiu $sp,$sp,4: $sp=67108836,$sp=67108836 -> $sp=67108840
-sample.m: $pc=0x58: 0x24020FA1: addiu $v0,$zero,4001: $v0=0,$zero=0 -> $v0=4001
-sample.m: $pc=0x5C: 0x0000000C: syscall
-sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
+ggglobal var: 3
+local var: 1
+Unlock triggered from: :  0
+sample.m: exiting with exit code 3 and 0.00MB of mallocated memory
 EXIT of: 0
-sample.m: $pc=0x0: 0x24080268: addiu $t0,$zero,616: $t0=0,$zero=0 -> $t0=616
-sample.m: $pc=0x4: 0x251C0000: addiu $gp,$t0,0: $gp=0,$t0=616 -> $gp=616
-sample.m: $pc=0x8: 0x24080FFF: addiu $t0,$zero,4095: $t0=616,$zero=0 -> $t0=4095
-sample.m: $pc=0xC: 0x24094000: addiu $t1,$zero,16384: $t1=0,$zero=0 -> $t1=16384
-sample.m: $pc=0x10: 0x01090019: multu $t0,$t1: $t0=4095,$t1=16384,$lo=0 -> $lo=67092480
-sample.m: $pc=0x14: 0x00004012: mflo $t0: $t0=4095,$lo=67092480 -> $t0=67092480
-sample.m: $pc=0x18: 0x00000000: nop
-sample.m: $pc=0x1C: 0x00000000: nop
-sample.m: $pc=0x20: 0x25083FFC: addiu $t0,$t0,16380: $t0=67092480,$t0=67092480 -> $t0=67108860
-sample.m: $pc=0x24: 0x8D1D0000: lw $sp,0($t0): $sp=0,$t0=0x3FFFFFC -> $sp=67108832=memory[0x3FFFFFC]
-sample.m: $pc=0x28: 0x00000000: nop
-sample.m: $pc=0x2C: 0x00000000: nop
-sample.m: $pc=0x30: 0x00000000: nop
-sample.m: $pc=0x34: 0x00000000: nop
-sample.m: $pc=0x38: 0x00000000: nop
-sample.m: $pc=0x3C: 0x00000000: nop
-sample.m: $pc=0x40: 0x0C00006F: jal 0x6F[0x1BC]: $ra=0x0 -> $ra=0x48,$pc=0x1BC
-sample.m: $pc=0x1BC: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108832,$sp=67108832 -> $sp=67108828
-sample.m: $pc=0x1C0: 0xAFBF0000: sw $ra,0($sp): $ra=72,$sp=0x3FFFFDC -> memory[0x3FFFFDC]=72=$ra
-sample.m: $pc=0x1C4: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108828,$sp=67108828 -> $sp=67108824
-sample.m: $pc=0x1C8: 0xAFBE0000: sw $fp,0($sp): $fp=0,$sp=0x3FFFFD8 -> memory[0x3FFFFD8]=0=$fp
-sample.m: $pc=0x1CC: 0x27BE0000: addiu $fp,$sp,0: $fp=0,$sp=67108824 -> $fp=67108824
-sample.m: $pc=0x1D0: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108824,$sp=67108824 -> $sp=67108820
-sample.m: $pc=0x1D4: 0x24080000: addiu $t0,$zero,0: $t0=67108860,$zero=0 -> $t0=0
-sample.m: $pc=0x1D8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=0,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=0=$t0
-sample.m: $pc=0x1DC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=0,$fp=0x3FFFFD8 -> $t0=0=memory[0x3FFFFD4]
-sample.m: $pc=0x1E0: 0x24090001: addiu $t1,$zero,1: $t1=16384,$zero=0 -> $t1=1
-sample.m: $pc=0x1E4: 0x01094021: addu $t0,$t0,$t1: $t0=0,$t0=0,$t1=1 -> $t0=1
-sample.m: $pc=0x1E8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=1,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=1=$t0
-sample.m: $pc=0x1EC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=1,$fp=0x3FFFFD8 -> $t0=1=memory[0x3FFFFD4]
-sample.m: $pc=0x1F0: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x1F4: 0x01094021: addu $t0,$t0,$t1: $t0=1,$t0=1,$t1=1 -> $t0=2
-sample.m: $pc=0x1F8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=2,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=2=$t0
-sample.m: $pc=0x1FC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=2,$fp=0x3FFFFD8 -> $t0=2=memory[0x3FFFFD4]
-sample.m: $pc=0x200: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x204: 0x01094021: addu $t0,$t0,$t1: $t0=2,$t0=2,$t1=1 -> $t0=3
-sample.m: $pc=0x208: 0xAFC8FFFC: sw $t0,-4($fp): $t0=3,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=3=$t0
-sample.m: $pc=0x20C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=3,$fp=0x3FFFFD8 -> $t0=3=memory[0x3FFFFD4]
-sample.m: $pc=0x210: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x214: 0x01094021: addu $t0,$t0,$t1: $t0=3,$t0=3,$t1=1 -> $t0=4
-sample.m: $pc=0x218: 0xAFC8FFFC: sw $t0,-4($fp): $t0=4,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=4=$t0
-sample.m: $pc=0x21C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=4,$fp=0x3FFFFD8 -> $t0=4=memory[0x3FFFFD4]
-sample.m: $pc=0x220: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x224: 0x01094021: addu $t0,$t0,$t1: $t0=4,$t0=4,$t1=1 -> $t0=5
-sample.m: $pc=0x228: 0xAFC8FFFC: sw $t0,-4($fp): $t0=5,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=5=$t0
-sample.m: $pc=0x22C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=5,$fp=0x3FFFFD8 -> $t0=5=memory[0x3FFFFD4]
-sample.m: $pc=0x230: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x234: 0x01094021: addu $t0,$t0,$t1: $t0=5,$t0=5,$t1=1 -> $t0=6
-sample.m: $pc=0x238: 0xAFC8FFFC: sw $t0,-4($fp): $t0=6,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=6=$t0
-sample.m: $pc=0x23C: 0x24080000: addiu $t0,$zero,0: $t0=6,$zero=0 -> $t0=0
-sample.m: $pc=0x240: 0x00081021: addu $v0,$zero,$t0: $v0=0,$zero=0,$t0=0 -> $v0=0
-sample.m: $pc=0x244: 0x08000093: j 0x93[0x24C]: -> $pc=0x24C
-sample.m: $pc=0x24C: 0x27DD0000: addiu $sp,$fp,0: $sp=67108820,$fp=67108824 -> $sp=67108824
-sample.m: $pc=0x250: 0x8FBE0000: lw $fp,0($sp): $fp=67108824,$sp=0x3FFFFD8 -> $fp=0=memory[0x3FFFFD8]
-sample.m: $pc=0x254: 0x27BD0004: addiu $sp,$sp,4: $sp=67108824,$sp=67108824 -> $sp=67108828
-sample.m: $pc=0x258: 0x8FBF0000: lw $ra,0($sp): $ra=72,$sp=0x3FFFFDC -> $ra=72=memory[0x3FFFFDC]
-sample.m: $pc=0x25C: 0x27BD000C: addiu $sp,$sp,12: $sp=67108828,$sp=67108828 -> $sp=67108840
-sample.m: $pc=0x260: 0x03E00008: jr $ra: $ra=0x48 -> $pc=0x48
-sample.m: $pc=0x48: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108840,$sp=67108840 -> $sp=67108836
-sample.m: $pc=0x4C: 0xAFA20000: sw $v0,0($sp): $v0=0,$sp=0x3FFFFE4 -> memory[0x3FFFFE4]=0=$v0
-sample.m: $pc=0x50: 0x8FA40000: lw $a0,0($sp): $a0=0,$sp=0x3FFFFE4 -> $a0=0=memory[0x3FFFFE4]
-sample.m: $pc=0x54: 0x27BD0004: addiu $sp,$sp,4: $sp=67108836,$sp=67108836 -> $sp=67108840
-sample.m: $pc=0x58: 0x24020FA1: addiu $v0,$zero,4001: $v0=0,$zero=0 -> $v0=4001
-sample.m: $pc=0x5C: 0x0000000C: syscall
-sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
+lobal var: 3
+local var: 1
+Unlock triggered from: :  1
+losample.m: exiting with exit code 3 and 0.00MB of mallocated memory
 EXIT of: 1
-sample.m: $pc=0x0: 0x24080268: addiu $t0,$zero,616: $t0=0,$zero=0 -> $t0=616
-sample.m: $pc=0x4: 0x251C0000: addiu $gp,$t0,0: $gp=0,$t0=616 -> $gp=616
-sample.m: $pc=0x8: 0x24080FFF: addiu $t0,$zero,4095: $t0=616,$zero=0 -> $t0=4095
-sample.m: $pc=0xC: 0x24094000: addiu $t1,$zero,16384: $t1=0,$zero=0 -> $t1=16384
-sample.m: $pc=0x10: 0x01090019: multu $t0,$t1: $t0=4095,$t1=16384,$lo=0 -> $lo=67092480
-sample.m: $pc=0x14: 0x00004012: mflo $t0: $t0=4095,$lo=67092480 -> $t0=67092480
-sample.m: $pc=0x18: 0x00000000: nop
-sample.m: $pc=0x1C: 0x00000000: nop
-sample.m: $pc=0x20: 0x25083FFC: addiu $t0,$t0,16380: $t0=67092480,$t0=67092480 -> $t0=67108860
-sample.m: $pc=0x24: 0x8D1D0000: lw $sp,0($t0): $sp=0,$t0=0x3FFFFFC -> $sp=67108832=memory[0x3FFFFFC]
-sample.m: $pc=0x28: 0x00000000: nop
-sample.m: $pc=0x2C: 0x00000000: nop
-sample.m: $pc=0x30: 0x00000000: nop
-sample.m: $pc=0x34: 0x00000000: nop
-sample.m: $pc=0x38: 0x00000000: nop
-sample.m: $pc=0x3C: 0x00000000: nop
-sample.m: $pc=0x40: 0x0C00006F: jal 0x6F[0x1BC]: $ra=0x0 -> $ra=0x48,$pc=0x1BC
-sample.m: $pc=0x1BC: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108832,$sp=67108832 -> $sp=67108828
-sample.m: $pc=0x1C0: 0xAFBF0000: sw $ra,0($sp): $ra=72,$sp=0x3FFFFDC -> memory[0x3FFFFDC]=72=$ra
-sample.m: $pc=0x1C4: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108828,$sp=67108828 -> $sp=67108824
-sample.m: $pc=0x1C8: 0xAFBE0000: sw $fp,0($sp): $fp=0,$sp=0x3FFFFD8 -> memory[0x3FFFFD8]=0=$fp
-sample.m: $pc=0x1CC: 0x27BE0000: addiu $fp,$sp,0: $fp=0,$sp=67108824 -> $fp=67108824
-sample.m: $pc=0x1D0: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108824,$sp=67108824 -> $sp=67108820
-sample.m: $pc=0x1D4: 0x24080000: addiu $t0,$zero,0: $t0=67108860,$zero=0 -> $t0=0
-sample.m: $pc=0x1D8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=0,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=0=$t0
-sample.m: $pc=0x1DC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=0,$fp=0x3FFFFD8 -> $t0=0=memory[0x3FFFFD4]
-sample.m: $pc=0x1E0: 0x24090001: addiu $t1,$zero,1: $t1=16384,$zero=0 -> $t1=1
-sample.m: $pc=0x1E4: 0x01094021: addu $t0,$t0,$t1: $t0=0,$t0=0,$t1=1 -> $t0=1
-sample.m: $pc=0x1E8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=1,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=1=$t0
-sample.m: $pc=0x1EC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=1,$fp=0x3FFFFD8 -> $t0=1=memory[0x3FFFFD4]
-sample.m: $pc=0x1F0: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x1F4: 0x01094021: addu $t0,$t0,$t1: $t0=1,$t0=1,$t1=1 -> $t0=2
-sample.m: $pc=0x1F8: 0xAFC8FFFC: sw $t0,-4($fp): $t0=2,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=2=$t0
-sample.m: $pc=0x1FC: 0x8FC8FFFC: lw $t0,-4($fp): $t0=2,$fp=0x3FFFFD8 -> $t0=2=memory[0x3FFFFD4]
-sample.m: $pc=0x200: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x204: 0x01094021: addu $t0,$t0,$t1: $t0=2,$t0=2,$t1=1 -> $t0=3
-sample.m: $pc=0x208: 0xAFC8FFFC: sw $t0,-4($fp): $t0=3,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=3=$t0
-sample.m: $pc=0x20C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=3,$fp=0x3FFFFD8 -> $t0=3=memory[0x3FFFFD4]
-sample.m: $pc=0x210: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x214: 0x01094021: addu $t0,$t0,$t1: $t0=3,$t0=3,$t1=1 -> $t0=4
-sample.m: $pc=0x218: 0xAFC8FFFC: sw $t0,-4($fp): $t0=4,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=4=$t0
-sample.m: $pc=0x21C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=4,$fp=0x3FFFFD8 -> $t0=4=memory[0x3FFFFD4]
-sample.m: $pc=0x220: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x224: 0x01094021: addu $t0,$t0,$t1: $t0=4,$t0=4,$t1=1 -> $t0=5
-sample.m: $pc=0x228: 0xAFC8FFFC: sw $t0,-4($fp): $t0=5,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=5=$t0
-sample.m: $pc=0x22C: 0x8FC8FFFC: lw $t0,-4($fp): $t0=5,$fp=0x3FFFFD8 -> $t0=5=memory[0x3FFFFD4]
-sample.m: $pc=0x230: 0x24090001: addiu $t1,$zero,1: $t1=1,$zero=0 -> $t1=1
-sample.m: $pc=0x234: 0x01094021: addu $t0,$t0,$t1: $t0=5,$t0=5,$t1=1 -> $t0=6
-sample.m: $pc=0x238: 0xAFC8FFFC: sw $t0,-4($fp): $t0=6,$fp=0x3FFFFD8 -> memory[0x3FFFFD4]=6=$t0
-sample.m: $pc=0x23C: 0x24080000: addiu $t0,$zero,0: $t0=6,$zero=0 -> $t0=0
-sample.m: $pc=0x240: 0x00081021: addu $v0,$zero,$t0: $v0=0,$zero=0,$t0=0 -> $v0=0
-sample.m: $pc=0x244: 0x08000093: j 0x93[0x24C]: -> $pc=0x24C
-sample.m: $pc=0x24C: 0x27DD0000: addiu $sp,$fp,0: $sp=67108820,$fp=67108824 -> $sp=67108824
-sample.m: $pc=0x250: 0x8FBE0000: lw $fp,0($sp): $fp=67108824,$sp=0x3FFFFD8 -> $fp=0=memory[0x3FFFFD8]
-sample.m: $pc=0x254: 0x27BD0004: addiu $sp,$sp,4: $sp=67108824,$sp=67108824 -> $sp=67108828
-sample.m: $pc=0x258: 0x8FBF0000: lw $ra,0($sp): $ra=72,$sp=0x3FFFFDC -> $ra=72=memory[0x3FFFFDC]
-sample.m: $pc=0x25C: 0x27BD000C: addiu $sp,$sp,12: $sp=67108828,$sp=67108828 -> $sp=67108840
-sample.m: $pc=0x260: 0x03E00008: jr $ra: $ra=0x48 -> $pc=0x48
-sample.m: $pc=0x48: 0x27BDFFFC: addiu $sp,$sp,-4: $sp=67108840,$sp=67108840 -> $sp=67108836
-sample.m: $pc=0x4C: 0xAFA20000: sw $v0,0($sp): $v0=0,$sp=0x3FFFFE4 -> memory[0x3FFFFE4]=0=$v0
-sample.m: $pc=0x50: 0x8FA40000: lw $a0,0($sp): $a0=0,$sp=0x3FFFFE4 -> $a0=0=memory[0x3FFFFE4]
-sample.m: $pc=0x54: 0x27BD0004: addiu $sp,$sp,4: $sp=67108836,$sp=67108836 -> $sp=67108840
-sample.m: $pc=0x58: 0x24020FA1: addiu $v0,$zero,4001: $v0=0,$zero=0 -> $v0=4001
-sample.m: $pc=0x5C: 0x0000000C: syscall
-sample.m: exiting with exit code 0 and 0.00MB of mallocated memory
+bal var: 3
+local var: 1
+Unlock triggered from: :  2
+sample.m: exiting with exit code 3 and 0.00MB of mallocated memory
 EXIT of: 2
-./selfie: this is selfie's mipster terminating sample.m with exit code 0 and 0.01MB of mapped memory
+./selfie: this is selfie's mipster terminating sample.m with exit code 3 and 0.15MB of mapped memory
 ./selfie: profile: total,max(ratio%)@addr,2max(ratio%)@addr,3max(ratio%)@addr
-./selfie: calls: 3,3(100.00%)@0x1BC,0(0.00%),0(0.00%)
-./selfie: loads: 30,3(10.00%)@0x24,0(0.00%),0(0.00%)
-./selfie: stores: 30,3(10.00%)@0x4C,0(0.00%),0(0.00%)
+./selfie: calls: 1227,402(32.78%)@0x263C,210(17.12%)@0x269C,186(15.17%)@0x27D8
+./selfie: loops: 177,90(51.02%)@0x32C,75(42.37%)@0x3FDC,6(3.38%)@0x2CCC
+./selfie: loads: 9081,402(4.42%)@0x2650,210(2.31%)@0x26B0,186(2.04%)@0x27EC
+./selfie: stores: 5361,402(7.50%)@0x2640,210(3.91%)@0x26A0,186(3.46%)@0x27DC

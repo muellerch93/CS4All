@@ -5155,6 +5155,7 @@ void implementLock(){
 	//printd("Lock trigger try from: ",getID(currentContext));
 	if(lockBusyValue == 1){
 		putThreadToSleep(getID(currentContext));
+		throwException(EXCEPTION_TIMER, 0);
 	}else{
 		//printd("Lock granted from: ",getID(currentContext));
 		lockBusyValue = 1;
@@ -6910,9 +6911,9 @@ int* deleteContext(int* context, int* from) {
 
 void mapPage(int* table, int page, int frame) {
   // assert: 0 <= page < VIRTUALMEMORYSIZE / PAGESIZE
-	print("Mapping page: ");
-	printInteger(page);
-	println();
+	//print("Mapping page: ");
+	//printInteger(page);
+	//println();
   *(table + page) = frame;
 }
 
@@ -7485,50 +7486,51 @@ int boot(int argc, int* argv) {
 		// create initial context on microkernel boot level
 	
 		initID = selfie_create();
-		cContext = findContext(initID, usedContexts);
+		
 
 		if(count==0){
 			firstID=initID;
-			initSegTableForContext(cContext);
+		
 		}
 		if (usedContexts == (int*) 0){
 		  // create duplicate of the initial context on our boot level
 		  usedContexts = createContext(initID, selfie_ID(), (int*) 0);
 		}
 		
-		
+		cContext = findContext(initID, usedContexts);
 		//if there is a previous context; get its segmentable for new context 
 		if(count!=0){
 			setST(cContext,getST(findContext(firstID, usedContexts)));
-			print((int*) "ST set to previous");
-			printSegmentTable(getST(cContext));
-			println();
+			//print((int*) "ST set to previous");
+			//printSegmentTable(getST(cContext));
+			//println();
 			stackStartForThread = (VIRTUALMEMORYSIZE - WORDSIZE) - stackPartitionSize * count;
-			print("SP start:");
-			printInteger(stackStartForThread);
-			println();
+			//print("SP start:");
+			//printInteger(stackStartForThread);
+			//println();
 			*(getRegs(cContext)+ REG_SP) = up_loadArguments(getST(cContext), argc, argv,stackStartForThread);	
-			print((int*)"arguments loaded");
-			println();
+			//print((int*)"arguments loaded");
+			//println();
 		}else{
+			initSegTableForContext(cContext);
 			up_loadBinary(getST(cContext));
-			print((int*)"binary loaded");			
-			println();
+		//	print((int*)"binary loaded");			
+		//	println();
 			
-			printd("up_loadArguments with context ",initID);
+		//	printd("up_loadArguments with context ",initID);
 			//SP of context was previously initialised in up_load Arguments; in the thread approach each thread gets its own patition of the stack
 			// arguments are pushed onto stack which starts at highest virtual address
-  		print("SP start:");
-			printInteger((VIRTUALMEMORYSIZE - WORDSIZE));
-			println();
+  		//print("SP start:");
+			//printInteger((VIRTUALMEMORYSIZE - WORDSIZE));
+			//println();
 			*(getRegs(cContext)+ REG_SP) = up_loadArguments(getST(cContext), argc, argv,(VIRTUALMEMORYSIZE - WORDSIZE));
 		
-			print((int*)"arguments loaded");
-			println();
+			//print((int*)"arguments loaded");
+			//println();
 
-			// propagate page table of initial context to microkernel boot level
-			down_mapPageTable(findContext(initID, usedContexts));
+			// propagate page table of initial context to microkernel boot level		
 		}
+		down_mapPageTable(findContext(initID, usedContexts));
 		print((int*)"map page table after");
 		println();
 		count = count + 1;
